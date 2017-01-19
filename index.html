@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="converter">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="byteconverter as bc">
+      <label>Byte 1:</label>
+      <input type="number" ng-model="byte1" default='0' min="-255" max="254">
+      <label>Byte 2:</label>
+      <input type="number" ng-model="byte2" default='0' min="-255" max="254">
+      <label>Byte 3:</label>
+      <input type="number" ng-model="byte3" default='0' min="-255" max="254">
+      <label>Byte 4:</label>
+      <input type="number" ng-model="byte4" default='0' min="-255" max="254">
+      <hr>
+      <label>Byte 1-4 to DWord </label>
+      <h1>{{bc.toDWordHex(byte1, byte2, byte3, byte4)}}</h1>
+      <h1>{{bc.toDWord(byte1, byte2, byte3, byte4)}}</h1>
+      <hr>
+      <label>Byte 3-4 to Word </label>
+      <h1>{{bc.toWordHex(byte3, byte4)}}</h1>
+      <h1>{{bc.toWord(byte3, byte4)}}</h1>
+    </div>
+
+    <script>
+      angular.module('converter', []).controller('byteconverter', function(){
+        var byteConverter = this;
+
+        byteConverter.toDWord = function(byteA, byteB, byteC, byteD){
+          var hex = "0x" + byteConverter.toHex(byteA) + byteConverter.toHex(byteB) + byteConverter.toHex(byteC) + byteConverter.toHex(byteD);
+
+          if ( byteA & 0x80 ){
+            hex |= 0xFFFFFFFF00000000;
+          }
+
+          return parseInt(hex).toString();
+        }
+
+        byteConverter.toDWordHex = function(byteA, byteB, byteC, byteD){
+          var hex = "0x" + byteConverter.toHex(byteA) + byteConverter.toHex(byteB) + byteConverter.toHex(byteC) + byteConverter.toHex(byteD);
+
+          return hex;
+        }
+
+        byteConverter.toWordHex = function(byteA, byteB){
+          var hex = "0x" + byteConverter.toHex(byteA) + byteConverter.toHex(byteB);
+
+          return hex;
+        }
+
+        byteConverter.toWord = function(byteA, byteB){
+          var hex = "0x" + byteConverter.toHex(byteA) + byteConverter.toHex(byteB);
+
+          if ( byteA & 0x80 ){
+            hex |= 0xFFFFFFFFFFFF0000;
+          }
+
+          return parseInt(hex).toString();
+        }
+
+        byteConverter.toHex= function(byteToConvert){
+          var hexChar = ["0", "1", "2", "3", "4", "5", "6", "7","8", "9", "A", "B", "C", "D", "E", "F"];
+          var b = byteToConvert & 0xFF;
+          return hexChar[(b >> 4) & 0x0f] + hexChar[b & 0x0f];
+
+        };
+      });
+    </script>
+  </body>
+</html>
