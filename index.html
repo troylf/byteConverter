@@ -14,24 +14,26 @@
   </head>
   <body>
     <div ng-controller="byteconverter as bc">
+      <h2> Input </h2>
       <div>
-        <div>
+        <div class="form-group">
           <label>Byte 1:</label>
-          <input type="number" ng-model="byte1" default='0' min="-255" max="254">
+          <input type="number" ng-model="byte1" default='0' min="-255" max="254" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
           <label>Byte 2:</label>
-          <input type="number" ng-model="byte2" default='0' min="-255" max="254">
+          <input type="number" ng-model="byte2" default='0' min="-255" max="254" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
           <label>Byte 3:</label>
-          <input type="number" ng-model="byte3" default='0' min="-255" max="254">
+          <input type="number" ng-model="byte3" default='0' min="-255" max="254" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
           <label>Byte 4:</label>
-          <input type="number" ng-model="byte4" default='0' min="-255" max="254">
+          <input type="number" ng-model="byte4" default='0' min="-255" max="254" class="form-control">
         </div>
       </div>
+      <h2> Output </h2>
       <label>Byte 1-4 to DWord </label>
       <h1>{{bc.toDWordHex(byte1, byte2, byte3, byte4)}}</h1>
       <h1>{{bc.toDWord(byte1, byte2, byte3, byte4)}}</h1>
