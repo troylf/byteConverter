@@ -11,35 +11,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <style>
+      h3 { text-decoration: underline; }
+    </style>
   </head>
   <body>
     <div ng-controller="byteconverter as bc">
-      <h2> Input </h2>
+      <h3> Input </h3>
       <div>
-        <div class="form-group">
-          <label>Byte 1:</label>
-          <input type="number" ng-model="byte1" default='0' min="-255" max="254" class="form-control">
+        <div class="form-inline">
+          <input type="number" ng-model="byte1" default='0' min="-255" max="254" class="form-control" placeholder="Byte 1">
         </div>
-        <div class="form-group">
-          <label>Byte 2:</label>
-          <input type="number" ng-model="byte2" default='0' min="-255" max="254" class="form-control">
+        <div class="form-inline">
+          <input type="number" ng-model="byte2" default='0' min="-255" max="254" class="form-control" placeholder="Byte 2">
         </div>
-        <div class="form-group">
-          <label>Byte 3:</label>
-          <input type="number" ng-model="byte3" default='0' min="-255" max="254" class="form-control">
+        <div class="form-inline">
+          <input type="number" ng-model="byte3" default='0' min="-255" max="254" class="form-control" placeholder="Byte 3">
         </div>
-        <div class="form-group">
-          <label>Byte 4:</label>
-          <input type="number" ng-model="byte4" default='0' min="-255" max="254" class="form-control">
+        <div class="form-inline">
+          <input type="number" ng-model="byte4" default='0' min="-255" max="254" class="form-control" placeholder="Byte 4">
         </div>
       </div>
-      <h2> Output </h2>
-      <label>Byte 1-4 to DWord </label>
-      <h1>{{bc.toDWordHex(byte1, byte2, byte3, byte4)}}</h1>
-      <h1>{{bc.toDWord(byte1, byte2, byte3, byte4)}}</h1>
-      <label>Byte 3-4 to Word </label>
-      <h1>{{bc.toWordHex(byte3, byte4)}}</h1>
-      <h1>{{bc.toWord(byte3, byte4)}}</h1>
+      <h3> Output </h3>
+      <h4>Byte 1-4 to DWord </h4>
+      <div>{{bc.toDWordHex(byte1, byte2, byte3, byte4)}}</div>
+      <div>{{bc.toDWord(byte1, byte2, byte3, byte4)}}</div>
+      <h4>Byte 3-4 to Word </h4>
+      <div>{{bc.toWordHex(byte3, byte4)}}</div>
+      <div>{{bc.toWord(byte3, byte4)}}</div>
     </div>
 
     <script>
