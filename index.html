@@ -13,22 +13,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <style>
       h3 { text-decoration: underline; }
+      .form-inline {
+          margin-bottom: 1px;
+      }
+      .main-container{
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      .form-inline input {
+          margin-bottom: 1px;
+      }
     </style>
   </head>
   <body>
-    <div ng-controller="byteconverter as bc">
+    <div ng-controller="byteconverter as bc" class="main-container">
       <h3> Input </h3>
       <div>
         <div class="form-inline">
           <input type="number" ng-model="byte1" default='0' min="-255" max="254" class="form-control" placeholder="Byte 1">
-        </div>
-        <div class="form-inline">
           <input type="number" ng-model="byte2" default='0' min="-255" max="254" class="form-control" placeholder="Byte 2">
-        </div>
-        <div class="form-inline">
           <input type="number" ng-model="byte3" default='0' min="-255" max="254" class="form-control" placeholder="Byte 3">
-        </div>
-        <div class="form-inline">
           <input type="number" ng-model="byte4" default='0' min="-255" max="254" class="form-control" placeholder="Byte 4">
         </div>
       </div>
