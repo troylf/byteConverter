@@ -14,11 +14,9 @@
       <input type="number" ng-model="byte3" default='0' min="-255" max="254">
       <label>Byte 4:</label>
       <input type="number" ng-model="byte4" default='0' min="-255" max="254">
-      <hr>
       <label>Byte 1-4 to DWord </label>
       <h1>{{bc.toDWordHex(byte1, byte2, byte3, byte4)}}</h1>
       <h1>{{bc.toDWord(byte1, byte2, byte3, byte4)}}</h1>
-      <hr>
       <label>Byte 3-4 to Word </label>
       <h1>{{bc.toWordHex(byte3, byte4)}}</h1>
       <h1>{{bc.toWord(byte3, byte4)}}</h1>
